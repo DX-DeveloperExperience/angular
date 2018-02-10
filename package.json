@@ -10,8 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "retire": "retire -n -p",
-    "format": "prettier --single-quote --write \"src/**/*.{css,ts}\""
-
+    "format": "prettier --write \"src/**/*.{css,ts}\""
   },
   "private": true,
   "dependencies": {
@@ -49,5 +48,8 @@
     "ts-node": "4.1.0",
     "tslint": "5.9.1",
     "typescript": "2.5.3"
+  },
+  "prettier": {
+    "singleQuote": true
   }
 }
