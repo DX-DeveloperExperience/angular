@@ -6,14 +6,14 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod --aot",
-    "build:ci": "ng build --prod --aot --stats-json",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "retire": "retire -n -p",
     "format": "prettier --write \"src/**/*.{css,ts}\"",
     "check-size": "bundlesize",
-    "webpack-report": "webpack-bundle-analyzer dist/stats.json"
+    "webpack-report":
+      "npm run build -- --stats-json && webpack-bundle-analyzer dist/stats.json"
   },
   "private": true,
   "dependencies": {
