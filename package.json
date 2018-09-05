@@ -11,7 +11,8 @@
     "retire": "retire -n -p",
     "format": "prettier --write \"src/**/*.{css,ts}\"",
     "check-size": "bundlesize",
-    "webpack-report": "npm run build -- --stats-json && webpack-bundle-analyzer dist/stats.json"
+    "webpack-report": "npm run build -- --stats-json && webpack-bundle-analyzer dist/stats.json",
+    "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json"
   },
   "private": true,
   "dependencies": {
@@ -33,6 +34,7 @@
     "@angular/cli": "~6.1.4",
     "@angular/compiler-cli": "^6.1.0",
     "@angular/language-service": "^6.1.0",
+    "@compodoc/compodoc": "^1.1.5",
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
