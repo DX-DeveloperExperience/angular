@@ -10,7 +10,8 @@
     "e2e": "ng e2e",
     "format": "prettier --write \"src/**/*.{css,ts}\"",
     "webpack-report": "npm run build -- --stats-json && webpack-bundle-analyzer dist/stats.json",
-    "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json"
+    "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json",
+    "prettier-test": "prettier -l 'src/**/*.{ts,css}'"
   },
   "private": true,
   "dependencies": {
