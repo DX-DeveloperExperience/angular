@@ -3,7 +3,7 @@ image: weboaks/node-karma-protractor-chrome
 stages:
   - lint
   - test
-  - e2e
+ # - e2e
   - build
   - deploy
 
