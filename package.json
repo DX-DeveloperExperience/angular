@@ -11,8 +11,7 @@
     "e2e": "ng e2e",
     "format": "prettier --write \"src/**/*.{css,ts}\"",
     "webpack-report": "npm run build -- --stats-json && webpack-bundle-analyzer dist/stats.json",
-    "prettier-test": "prettier -l 'src/**/*.{ts,css}'",
-    "precommit": "npm audit --only=prod && run-s lint prettier-test test:ci e2e"
+    "prettier-test": "prettier -l 'src/**/*.{ts,css}'"
   },
   "private": true,
   "dependencies": {
@@ -59,5 +58,10 @@
   },
   "prettier": {
     "singleQuote": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm audit --only=prod && run-s lint prettier-test test:ci e2e"
+    }
   }
 }
