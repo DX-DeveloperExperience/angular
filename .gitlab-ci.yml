@@ -1,0 +1,72 @@
+image: weboaks/node-karma-protractor-chrome
+
+stages:
+  - lint
+  - test
+  - e2e
+  - build
+  - deploy
+
+cache:  
+  paths:
+    - node_modules/
+    
+test:
+  stage: test
+  script: 
+    - npm i
+    - pkill Xvfb
+    - npm run test:ci
+  artifacts:
+    paths:
+      - coverage/
+
+e2e:
+  stage: e2e
+  script: 
+    - npm i
+    - pkill Xvfb
+    - npm run e2e
+
+lint:
+  stage: lint
+  script: 
+    - npm i
+    - pkill Xvfb
+    - npm run lint
+
+prettier:
+  stage: lint
+  script: 
+    - npm i
+    - pkill Xvfb
+    - npm run prettier-test
+
+pages:
+  stage: deploy
+  dependencies:
+    - test
+  script:
+    - mv coverage/ public/
+  artifacts:
+    paths:
+      - public
+    expire_in: 30 days
+  only:
+    - master
+
+build:
+  image: docker:stable
+  services:
+    - docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_DRIVER: overlay2
+  stage: build
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker build -t $CI_REGISTRY_IMAGE:latest .
+    - docker push $CI_REGISTRY_IMAGE:latest
+  when: manual
+  only:
+   - master
