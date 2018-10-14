@@ -1,10 +1,12 @@
 {
   "name": "application",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build": "run-s build:default build:fr",
+    "build:default": "ng build --prod --baseHref=/en/",
+    "build:fr": "ng build --prod --baseHref=/fr/ --i18nFile=src/locale/messages.fr.xlf --i18nLocale=fr --outputPath=dist/Application/fr",
     "test": "ng test",
     "test:ci": "ng test --watch=false --browsers=ChromeHeadlessCI --progress=false",
     "lint": "ng lint",
