@@ -8,7 +8,7 @@
     "build:default": "ng build --prod --baseHref=/en/",
     "build:fr": "ng build --prod --baseHref=/fr/ --i18nFile=src/locale/messages.fr.xlf --i18nLocale=fr --outputPath=dist/Application/fr",
     "test": "ng test",
-    "test:ci": "ng test --watch=false --browsers=ChromeHeadlessCI --progress=false",
+    "test:ci": "ng test --watch=false --progress=false",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "format": "prettier --write \"src/**/*.{css,ts}\"",
@@ -26,7 +26,9 @@
     "@angular/platform-browser": "7.0.0",
     "@angular/platform-browser-dynamic": "7.0.0",
     "@angular/router": "7.0.0",
+    "D": "1.0.0",
     "core-js": "2.5.7",
+    "puppeteer": "1.9.0",
     "rxjs": "6.3.3",
     "zone.js": "0.8.26"
   },
