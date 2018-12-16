@@ -65,7 +65,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm audit --only=prod && run-s lint prettier-test test:ci"
+      "pre-prepush": "npm audit --only=prod && run-s lint prettier-test test:ci"
     }
   }
 }
